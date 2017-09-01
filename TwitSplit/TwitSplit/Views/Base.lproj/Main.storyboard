@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LZ3-ba-NlK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages-->
+        <scene sceneID="AvX-DE-iWn">
+            <objects>
+                <viewController storyboardIdentifier="MessagesController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G9B-pX-07Y" customClass="MessagesTableViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0xS-GU-skV"/>
+                        <viewControllerLayoutGuide type="bottom" id="gCl-KS-bz0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cl6-Rz-38r">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-qy-1jt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="G9B-pX-07Y" id="CMb-e7-vMc"/>
+                                    <outlet property="delegate" destination="G9B-pX-07Y" id="rcT-RW-PI9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2LV-qy-1jt" secondAttribute="trailing" id="Vp8-1a-xjz"/>
+                            <constraint firstItem="2LV-qy-1jt" firstAttribute="leading" secondItem="Cl6-Rz-38r" secondAttribute="leading" id="d9E-aE-tge"/>
+                            <constraint firstItem="2LV-qy-1jt" firstAttribute="top" secondItem="0xS-GU-skV" secondAttribute="bottom" id="kkm-iB-7NB"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2LV-qy-1jt" secondAttribute="bottom" id="peW-qK-xYc"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Messages" id="ibA-rl-XlM">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="BkR-oO-hbm">
+                            <connections>
+                                <action selector="onBtnPostMessage" destination="G9B-pX-07Y" id="518-tT-ZN7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="2LV-qy-1jt" id="iUo-Au-e3u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x26-m1-iER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="148.87556221889056"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="eEH-7k-FyK">
+            <objects>
+                <viewController storyboardIdentifier="PostController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bnh-it-bHJ" customClass="PostViewController" customModule="TwitSplit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VD8-zU-AaV"/>
+                        <viewControllerLayoutGuide type="bottom" id="7P7-Em-jEK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p9v-08-JL5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8f-wc-fLM">
+                                <rect key="frame" x="16" y="56" width="343" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bnh-it-bHJ" id="Vb9-bS-lbu"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yC-Qs-aKn">
+                                <rect key="frame" x="320" y="20" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CJz-4B-y7N"/>
+                                    <constraint firstAttribute="width" constant="39" id="SBS-aG-utn"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="onBtnClosePostControllerWithSender:" destination="bnh-it-bHJ" eventType="touchUpInside" id="CDw-pP-Q3y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7P7-Em-jEK" firstAttribute="top" secondItem="X8f-wc-fLM" secondAttribute="bottom" constant="20" id="0Dc-2A-IxG"/>
+                            <constraint firstItem="7yC-Qs-aKn" firstAttribute="top" secondItem="VD8-zU-AaV" secondAttribute="bottom" id="83q-nX-E5O"/>
+                            <constraint firstItem="7yC-Qs-aKn" firstAttribute="trailing" secondItem="p9v-08-JL5" secondAttribute="trailingMargin" id="F9O-AH-t43"/>
+                            <constraint firstItem="X8f-wc-fLM" firstAttribute="top" secondItem="7yC-Qs-aKn" secondAttribute="bottom" constant="6" id="aCs-GD-A8s"/>
+                            <constraint firstItem="X8f-wc-fLM" firstAttribute="trailing" secondItem="p9v-08-JL5" secondAttribute="trailingMargin" id="kQJ-Gp-Kol"/>
+                            <constraint firstItem="X8f-wc-fLM" firstAttribute="leading" secondItem="p9v-08-JL5" secondAttribute="leadingMargin" id="saV-50-m6S"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="textView" destination="X8f-wc-fLM" id="AtS-aZ-1yZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnA-GN-GUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2429.5999999999999" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="44r-tf-suH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LZ3-ba-NlK" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LBb-P2-3Gh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G9B-pX-07Y" kind="relationship" relationship="rootViewController" id="hno-4s-Hba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCd-r0-oY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.79999999999995" y="148.87556221889056"/>
+        </scene>
+    </scenes>
+</document>
